@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -6,11 +7,6 @@ namespace Exercise.Composite
 {
     public static class CompositeExtensions
     {
-        public static void InvokeBubbleOne(this ICanBubble composite)
-        {
-            composite.Bubble?.Invoke();
-        }
-
         public static void InvokeBubbleAllUp(this ICompositeChild composite)
         {
             // InvokeParent
@@ -35,35 +31,12 @@ namespace Exercise.Composite
                 {
                     myChildIsParent.InvokeBubbleAllDown();
                 }
-
-                if (child is IMultipleCompositeParent myChildIsMultipleParent)
-                {
-                    myChildIsMultipleParent.InvokeBubbleAllDown();
-                }
             }
         }
 
-        public static void InvokeBubbleAllDown(this IMultipleCompositeParent composite)
+        public static IEnumerable<ICompositeParent> ConcatParents(params IEnumerable<ICompositeParent>[] parents)
         {
-            // Invoke all childs
-            foreach (var childList in composite.MultipleChilds)
-            {
-                foreach (var child in childList)
-                {
-                    child.Bubble?.Invoke();
-
-                    // if the child is a parent -> start recrusion here
-                    if (child is IMultipleCompositeParent myChildIsParent)
-                    {
-                        myChildIsParent.InvokeBubbleAllDown();
-                    }
-
-                    if (child is ICompositeParent myChildIsSimpleParent)
-                    {
-                        myChildIsSimpleParent.InvokeBubbleAllDown();
-                    }
-                }
-            }
+            return parents.Aggregate((a, b) => a.Concat(b));
         }
     }
 }

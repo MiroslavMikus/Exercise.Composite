@@ -41,10 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\CompositeExtensions.cs" />
-    <Compile Include="Interfaces\ICanBubble.cs" />
     <Compile Include="Interfaces\ICompositeChild.cs" />
     <Compile Include="Interfaces\ICompositeParent.cs" />
-    <Compile Include="Interfaces\IMultipleCompositeParent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
