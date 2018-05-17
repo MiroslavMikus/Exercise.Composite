@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods\CompositeExtensions.cs" />
+    <Compile Include="ExtensionMethods\CompositeChildExtensions.cs" />
+    <Compile Include="ExtensionMethods\CompositeParentExtensions.cs" />
     <Compile Include="Interfaces\ICompositeChild.cs" />
     <Compile Include="Interfaces\ICompositeParent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

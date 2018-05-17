@@ -10,8 +10,15 @@ namespace Exercise.Composite.TestConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var group = FakeStorage.GetSimpleGroup();
+
+            group.InvokeBubbleAllDown();
+
+            Console.ReadLine();
+
+            group.Users[0].Cars[0].InvokeBubbleAllUp();
+
+            Console.ReadLine();
         }
     }
 }
