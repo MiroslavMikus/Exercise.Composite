@@ -28,6 +28,7 @@ namespace Exercise.Composite
                 }
             });
         }
+
         public static void InvokeBubbleAllDown(this ICompositeParent composite)
         {
             // Invoke all childs

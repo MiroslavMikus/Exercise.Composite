@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Exercise.Composite
 {
     public interface ICompositeChild
     {
         ICompositeParent Parent { get; set; }
-
-        /// <summary>
-        /// Child composite can bubble up with <see cref="InvokeBubbleAllUp"/>
-        /// </summary>
         Action Bubble { get; set; }
+    }
+
+    public interface ICompositeChild<T>
+    {
+        ICompositeParent<T> Parent { get; set; }
+        Func<T,T> Bubble { get; set; }
     }
 }
