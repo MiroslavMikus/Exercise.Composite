@@ -7,11 +7,13 @@ namespace Exercise.Composite
     {
         IEnumerable<ICompositeChild> Childs { get; }
         Action Bubble { get; set; }
+        bool StopBubble();
     }
 
     public interface ICompositeParent<T>
     {
         IEnumerable<ICompositeChild<T>> Childs { get; }
         Func<T, T> Bubble { get; set; }
+        bool StopBubble();
     }
 }
