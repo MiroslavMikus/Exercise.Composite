@@ -57,6 +57,8 @@ namespace Exercise.Composite
             // Invoke all childs
             foreach (var child in composite.Childs)
             {
+                if (child.StopBubble()) return;
+
                 child.Bubble?.Invoke();
 
                 // if the child is a parent -> start recrusion here
@@ -76,6 +78,8 @@ namespace Exercise.Composite
             // Invoke all childs
             foreach (var child in composite.Childs)
             {
+                if (composite.StopBubble()) return;
+
                 var output = child.Bubble.Invoke(input);
 
                 // if the child is a parent -> start recrusion here

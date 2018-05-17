@@ -1,4 +1,6 @@
-﻿namespace Exercise.Composite
+﻿using System.Collections;
+
+namespace Exercise.Composite
 {
     public static class CompositeChildExtensions
     {
@@ -8,6 +10,8 @@
         /// <param name="composite"></param>
         public static void InvokeBubbleAllUp(this ICompositeChild composite)
         {
+            if (composite.StopBubble()) return;
+
             // InvokeParent
             composite.Parent.Bubble?.Invoke();
 
