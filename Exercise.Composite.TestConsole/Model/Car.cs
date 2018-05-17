@@ -6,7 +6,7 @@ namespace Exercise.Composite.TestConsole.Model
     {
         public Car()
         {
-            Bubble = () => Console.WriteLine($"Bubble up -> {nameof(User)} Name: {Color}");
+            Bubble = () => Console.WriteLine($"Bubble down -> {nameof(User)} Name: {Color}");
         }
 
         public string Color { get; set; }

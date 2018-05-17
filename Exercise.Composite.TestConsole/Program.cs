@@ -12,6 +12,8 @@ namespace Exercise.Composite.TestConsole
         {
             var group = FakeStorage.GetSimpleGroup();
 
+            group.InitChildsRecrusive();
+
             group.InvokeBubbleAllDown();
 
             Console.ReadLine();
