@@ -10,7 +10,7 @@ namespace Exercise.Composite.TestConsole.Model
     {
         public Group()
         {
-            Bubble = () => Console.WriteLine($"Bubble up -> {nameof(Group)} Name: {Name}");
+            Bubble = () => Console.WriteLine($"Bubble up -> {nameof(Group)} : {Name}");
         }
 
         public string Name { get; set; }
@@ -18,5 +18,6 @@ namespace Exercise.Composite.TestConsole.Model
 
         public IEnumerable<ICompositeChild> Childs => Users;
         public Action Bubble { get; set; }
+        public bool StopBubble() => false;
     }
 }

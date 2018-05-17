@@ -7,8 +7,8 @@ namespace Exercise.Composite.TestConsole.Model
     {
         public User()
         {
-            (this as ICompositeChild).Bubble = () => Console.WriteLine($"Bubble down -> {nameof(User)} Name: {Name}");
-            (this as ICompositeParent).Bubble = () => Console.WriteLine($"Bubble up -> {nameof(User)} Name: {Name}");
+            (this as ICompositeChild).Bubble = () => Console.WriteLine($"Bubble down -> {nameof(User)} : {Name}");
+            (this as ICompositeParent).Bubble = () => Console.WriteLine($"Bubble up -> {nameof(User)} : {Name}");
         }
 
         public string Name { get; set; }
@@ -19,5 +19,6 @@ namespace Exercise.Composite.TestConsole.Model
 
         Action ICompositeChild.Bubble { get; set; }
         Action ICompositeParent.Bubble { get; set; }
+        public bool StopBubble() => false;
     }
 }

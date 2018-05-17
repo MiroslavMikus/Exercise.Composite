@@ -6,12 +6,14 @@ namespace Exercise.Composite.TestConsole.Model
     {
         public Car()
         {
-            Bubble = () => Console.WriteLine($"Bubble down -> {nameof(User)} Name: {Color}");
+            Bubble = () => Console.WriteLine($"Bubble down -> {nameof(Car)} Color: {Color}");
         }
 
         public string Color { get; set; }
 
         public ICompositeParent Parent { get; set; }
         public Action Bubble { get; set; }
+
+        public bool StopBubble() => false;
     }
 }
