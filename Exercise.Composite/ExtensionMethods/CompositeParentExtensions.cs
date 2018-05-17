@@ -1,24 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Exercise.Composite
 {
-    public static class CompositeExtensions
+    public static class CompositeParentExtensions
     {
-        public static void InvokeBubbleAllUp(this ICompositeChild composite)
+        public static void InitChilds(this ICompositeParent composite, Action<ICompositeChild> executeAfterInit = null) 
         {
-            // InvokeParent
-            composite.Parent.Bubble?.Invoke();
-
-            // if the parent is a child -> start recrusion here
-            if (composite.Parent is ICompositeChild myParentIsChild)
+            foreach (var child in composite.Childs)
             {
-                myParentIsChild.InvokeBubbleAllUp();
+                child.Parent = composite;
+
+                executeAfterInit?.Invoke(child);
             }
         }
 
+        public static void InitChildsRecrusive(this ICompositeParent composite)
+        {
+            InitChilds(composite, child =>
+            {
+                if (child is ICompositeParent parent)
+                {
+                    InitChildsRecrusive(parent);
+                }
+            });
+        }
         public static void InvokeBubbleAllDown(this ICompositeParent composite)
         {
             // Invoke all childs
