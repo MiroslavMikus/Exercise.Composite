@@ -90,12 +90,12 @@ namespace Exercise.Composite
             }
         }
 
-        public static IEnumerable<ICompositeParent> ConcatParents(params IEnumerable<ICompositeParent>[] parents)
+        public static IEnumerable<ICompositeChild> ConcatParents(params IEnumerable<ICompositeChild>[] parents)
         {
             return parents.Aggregate((a, b) => a.Concat(b));
         }
 
-        public static IEnumerable<ICompositeParent<T>> ConcatParents<T>(params IEnumerable<ICompositeParent<T>>[] parents)
+        public static IEnumerable<ICompositeChild<T>> ConcatParents<T>(params IEnumerable<ICompositeChild<T>>[] parents)
         {
             return parents.Aggregate((a, b) => a.Concat(b));
         }
