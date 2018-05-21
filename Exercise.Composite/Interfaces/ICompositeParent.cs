@@ -6,7 +6,7 @@ namespace Exercise.Composite
     public interface ICompositeParent
     {
         IEnumerable<ICompositeChild> Childs { get; }
-        Action Bubble { get; set; }
+        Action BubbleUp { get; set; }
         bool StopBubble();
     }
 

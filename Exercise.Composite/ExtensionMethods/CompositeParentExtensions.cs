@@ -59,7 +59,7 @@ namespace Exercise.Composite
             {
                 if (child.StopBubble()) return;
 
-                child.Bubble?.Invoke();
+                child.BubbleDown?.Invoke();
 
                 // if the child is a parent -> start recrusion here
                 if (child is ICompositeParent myChildIsParent)

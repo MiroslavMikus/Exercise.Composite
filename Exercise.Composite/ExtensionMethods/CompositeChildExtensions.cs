@@ -13,7 +13,7 @@ namespace Exercise.Composite
             if (composite.StopBubble()) return;
 
             // InvokeParent
-            composite.Parent.Bubble?.Invoke();
+            composite.Parent.BubbleUp?.Invoke();
 
             // if the parent is a child -> start recrusion here
             if (composite.Parent is ICompositeChild myParentIsChild)
