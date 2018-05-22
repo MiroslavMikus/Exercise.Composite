@@ -29,7 +29,7 @@ namespace Exercise.Composite
         public static void InvokeBubbleAllUp<T>(this ICompositeChild<T> composite, T input)
         {
             // InvokeParent
-            var output = composite.Parent.Bubble.Invoke(input);
+            var output = composite.Parent.BubbleUp.Invoke(input);
 
             // if the parent is a child -> start recrusion here
             if (composite.Parent is ICompositeChild<T> myParentIsChild)

@@ -80,7 +80,7 @@ namespace Exercise.Composite
             {
                 if (composite.StopBubble()) return;
 
-                var output = child.Bubble.Invoke(input);
+                var output = child.BubbleDown.Invoke(input);
 
                 // if the child is a parent -> start recrusion here
                 if (child is ICompositeParent<T> myChildIsParent)
