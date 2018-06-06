@@ -6,14 +6,14 @@ namespace Exercise.Composite
     public interface ICompositeParent
     {
         IEnumerable<ICompositeChild> Childs { get; }
-        Action BubbleUp { get; set; }
+        void BubbleUp();
         bool StopBubble();
     }
 
     public interface ICompositeParent<T>
     {
         IEnumerable<ICompositeChild<T>> Childs { get; }
-        Func<T, T> BubbleUp { get; set; }
+        T BubbleUp(T input);
         bool StopBubble();
     }
 }
