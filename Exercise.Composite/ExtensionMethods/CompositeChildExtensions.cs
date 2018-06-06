@@ -1,41 +1,145 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Exercise.Composite
 {
     public static class CompositeChildExtensions
     {
         /// <summary>
-        /// Invokes all composites.Bubble on the way up except the current composite
+        /// Invokes all composites. Bubble on the way up except the current composite.
         /// </summary>
         /// <param name="composite"></param>
-        public static void InvokeBubbleAllUp(this ICompositeChild composite)
+        /// <exception cref="ArgumentNullException">
+        /// Will be thrown if the Composite parent is null.
+        /// </exception>
+        public static void InvokeBubbleUp(this ICompositeChild composite)
         {
             if (composite.StopBubble()) return;
 
-            // InvokeParent
-            composite.Parent.BubbleUp?.Invoke();
+            // validation
+            if (composite.Parent == null)
+            {
+                // detect recrusive-composite root ->
+                // composite child is also composite parent
+                // one of the child elements hast the same type
+                if (composite is ICompositeParent parent &&
+                    parent.Childs.Any(a => a.GetType() == composite.GetType()))
+                {
+                    return;
+                }
+                else
+                {
+                    throw new ArgumentNullException($"{nameof(CompositeChildExtensions)}.{nameof(InvokeBubbleUp)} says: Composite parent cant be null!");
+                }
+            }
+
+            // Invoke Parent
+            composite.Parent.BubbleUp();
 
             // if the parent is a child -> start recrusion here
             if (composite.Parent is ICompositeChild myParentIsChild)
             {
-                myParentIsChild.InvokeBubbleAllUp();
+                myParentIsChild.InvokeBubbleUp();
             }
         }
 
         /// <summary>
-        /// Invokes all composites.Bubble on the way up except the current composite
+        /// Invokes all composites. Bubble on the way up except the current composite.
+        /// Execution is equal to pipeline logic.
         /// </summary>
         /// <param name="composite"></param>
-        public static void InvokeBubbleAllUp<T>(this ICompositeChild<T> composite, T input)
+        /// <exception cref="ArgumentNullException">
+        /// Will be thrown if the Composite parent is null.
+        /// </exception>
+        public static T InvokeBubbleUp<T>(this ICompositeChild<T> composite, T input)
         {
-            // InvokeParent
-            var output = composite.Parent.BubbleUp.Invoke(input);
+            if (composite.StopBubble()) return input;
+
+            // validation
+            if (composite.Parent == null)
+            {
+                // detect recrusive-composite root ->
+                // composite child is also composite parent
+                // one of the child elements hast the same type
+                if (composite is ICompositeParent<T> parent &&
+                    parent.Childs.Any(a => a.GetType() == composite.GetType()))
+                {
+                    return input;
+                }
+                else
+                {
+                    throw new ArgumentNullException($"Composite parent cant be null!");
+                }
+            }
+
+            // Invoke Parent
+            input = composite.Parent.BubbleUp(input);
 
             // if the parent is a child -> start recrusion here
             if (composite.Parent is ICompositeChild<T> myParentIsChild)
             {
-                myParentIsChild.InvokeBubbleAllUp(output);
+                myParentIsChild.InvokeBubbleUp(input);
             }
+
+            return input;
+        }
+
+        /// <summary>
+        /// Returns the root of the current tree.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="composite">Current composite</param>
+        /// <param name="filter">Parent conditions. If these conditions are not met, or filter is null, the root element will be returned.</param>
+        /// <returns></returns>
+        public static ICompositeParent<T> GetRootComponent<T>(this ICompositeChild<T> composite, Func<ICompositeParent<T>, bool> filter = null)
+        {
+            if (filter?.Invoke(composite.Parent) == true)
+                return composite.Parent;
+
+            if (composite.Parent is ICompositeChild<T> child)
+            {
+                return child.GetRootComponent<T>();
+            }
+            else
+            {
+                return composite.Parent;
+            }
+        }
+
+        /// <summary>
+        /// Returns the root of the current tree.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="composite">Current composite</param>
+        /// <param name="filter">Parent conditions. If these conditions are not met, or filter is null, the root element will be returned.</param>
+        /// <returns></returns>
+        public static ICompositeParent GetRootComponent(this ICompositeChild composite, Func<ICompositeParent, bool> filter = null)
+        {
+            if (filter?.Invoke(composite.Parent) == true)
+            {
+                return composite.Parent;
+            }
+
+            if (composite.Parent is ICompositeChild child)
+            {
+                return child.GetRootComponent();
+            }
+            else
+            {
+                return composite.Parent;
+            }
+        }
+
+        public static IEnumerable<ICompositeChild<T>> GetSibling<T>(this ICompositeChild<T> composite, Func<ICompositeChild<T>, bool> filter = null)
+        {
+            return composite.Parent.Childs.Where(filter ?? (a => true)).Where(a => a != composite);
+        }
+
+        public static IEnumerable<ICompositeChild> GetSibling(this ICompositeChild composite, Func<ICompositeChild, bool> filter = null)
+        {
+            return composite.Parent.Childs.Where(filter ?? (a => true)).Where(a => a != composite);
         }
     }
 }
