@@ -16,12 +16,12 @@ namespace Exercise.Composite.TestConsole
 
 
             Console.WriteLine("Root (group) invokes bubble-down");
-            group.InvokeBubbleAllDown();
+            group.InvokeBubbleDown();
 
             Console.ReadLine();
 
             Console.WriteLine("Miros car invokes bubble-up");
-            group.Users[0].Cars[0].InvokeBubbleAllUp();
+            group.Users[0].Cars[0].InvokeBubbleUp();
 
             Console.ReadLine();
         }
