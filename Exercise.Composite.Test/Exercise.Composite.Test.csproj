@@ -48,11 +48,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositeParentTest.cs" />
     <Compile Include="FakeStorage.cs" />
     <Compile Include="Model\Car.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

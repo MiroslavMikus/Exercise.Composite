@@ -111,17 +111,16 @@ namespace Exercise.Composite
             // Invoke all childs
             foreach (var child in composite.Childs)
             {
-                if (composite.StopBubble()) yield return input;
+                //if (composite.StopBubble()) yield return input;
 
                 var result = child.BubbleDown(input);
 
                 // if the child is a parent -> start recrusion here
                 if (child is ICompositeParent<T> myChildIsParent)
                 {
-                   yield return myChildIsParent.InvokeBubbleDown(result);
+                    yield return myChildIsParent.InvokeBubbleDown(result);
                 }
             }
-            yield return input;
         }
 
         /// <summary>
