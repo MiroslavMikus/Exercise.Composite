@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositeChildTest.cs" />
     <Compile Include="CompositeParentTest.cs" />
     <Compile Include="FakeStorage.cs" />
     <Compile Include="Model\Car.cs" />

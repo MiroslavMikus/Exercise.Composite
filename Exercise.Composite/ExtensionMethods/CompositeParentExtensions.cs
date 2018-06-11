@@ -108,24 +108,26 @@ namespace Exercise.Composite
 
         public static IEnumerable<T> InvokeBubbleDownNonCummulative<T>(this ICompositeParent<T> composite, T input)
         {
-            // Invoke all childs
-            foreach (var child in composite.Childs)
+            List<ICompositeChild<T>> bottomChildren = new List<ICompositeChild<T>>();
+
+            composite.ExecuteOnChildRecrusive((parent, child) =>
             {
-                //if (composite.StopBubble()) yield return input;
-
-                var result = child.BubbleDown(input);
-
-                // if the child is a parent -> start recrusion here
-                if (child is ICompositeParent<T> myChildIsParent)
+                if (!(child is ICompositeParent<T>))
                 {
-                    yield return myChildIsParent.InvokeBubbleDown(result);
+                    bottomChildren.Add(child);
                 }
+            });
+
+            foreach (var child in bottomChildren)
+            {
+                var stack = child.BuildStackToRoot();
+
+                yield return stack.Aggregate(input, (accumulate, comp) => comp.BubbleDown(accumulate));
             }
         }
 
         /// <summary>
         /// Allows composite parent use multiple child collections.
-        /// Example View model has list of users and groups.
         /// </summary>
         /// <param name="parents"></param>
         /// <returns></returns>
@@ -136,7 +138,6 @@ namespace Exercise.Composite
 
         /// <summary>
         /// Allows composite parent use multiple child collections.
-        /// Example View model has list of users and groups.
         /// </summary>
         /// <param name="parents"></param>
         /// <returns></returns>
@@ -171,7 +172,6 @@ namespace Exercise.Composite
 
                 }
             }
-
             return result.ToString();
         }
 
@@ -200,7 +200,6 @@ namespace Exercise.Composite
                     result.Append(parent.VizualizeTree(depth + 1));
                 }
             }
-
             return result.ToString();
         }
     }

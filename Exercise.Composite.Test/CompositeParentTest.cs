@@ -64,7 +64,7 @@ namespace Exercise.Composite.Test
 
             group.InitChildsRecrusive();
 
-            var actual = group.InvokeBubbleDownNonCummulative(string.Empty);
+            var actual = group.InvokeBubbleDownNonCummulative(group.ToString()).ToList();
 
             //var expected = ",User: Miro,Car: Red,Car: Blue,User: John,Car: Black";
 
