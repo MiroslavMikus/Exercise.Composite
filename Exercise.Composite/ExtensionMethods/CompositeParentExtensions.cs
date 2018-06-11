@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Exercise.Composite
 {
@@ -125,6 +126,53 @@ namespace Exercise.Composite
         public static IEnumerable<ICompositeChild<T>> ConcatChildren<T>(params IEnumerable<ICompositeChild<T>>[] parents)
         {
             return parents.Aggregate((a, b) => a.Concat(b));
+        }
+
+        public static string VizualizeTree(this ICompositeParent composite, int depth = 0)
+        {
+            var result = new StringBuilder();
+
+            if (depth == 0)
+            {
+                result.AppendLine(composite.ToString());
+                depth++;
+            }
+
+            foreach (var child in composite.Childs)
+            {
+                result.AppendLine($" {new string('-', depth)} {child.ToString()}");
+
+                if (child is ICompositeParent parent)
+                {
+                    result.Append(parent.VizualizeTree(depth + 1));
+
+                }
+            }
+
+            return result.ToString();
+        }
+
+        public static string VizualizeTree<T>(this ICompositeParent<T> composite, int depth = 0)
+        {
+            var result = new StringBuilder();
+
+            if (depth == 0)
+            {
+                result.AppendLine(composite.ToString());
+                depth++;
+            }
+
+            foreach (var child in composite.Childs)
+            {
+                result.AppendLine($" {new string('-', depth)} {child.ToString()}");
+
+                if (child is ICompositeParent<T> parent)
+                {
+                    result.Append(parent.VizualizeTree(depth + 1));
+                }
+            }
+
+            return result.ToString();
         }
     }
 }
