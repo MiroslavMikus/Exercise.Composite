@@ -24,6 +24,12 @@ namespace Exercise.Composite.TestConsole
             group.Users[0].Cars[0].InvokeBubbleUp();
 
             Console.ReadLine();
+
+            var result = group.VizualizeTree();
+
+            Console.WriteLine(result);
+
+            Console.ReadLine();
         }
     }
 }

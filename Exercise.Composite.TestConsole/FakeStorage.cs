@@ -24,6 +24,21 @@ namespace Exercise.Composite.TestConsole
                             new Car
                             {
                                 Color = "Red"
+                            },
+                            new Car
+                            {
+                                Color = "Blue"
+                            }
+                        }
+                    },
+                    new User
+                    {
+                        Name = "John",
+                        Cars = new List<Car>
+                        {
+                            new Car
+                            {
+                                Color = "Black"
                             }
                         }
                     }
