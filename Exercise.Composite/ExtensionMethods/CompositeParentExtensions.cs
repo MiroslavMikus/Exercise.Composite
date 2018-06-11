@@ -128,6 +128,12 @@ namespace Exercise.Composite
             return parents.Aggregate((a, b) => a.Concat(b));
         }
 
+        /// <summary>
+        /// Creates simple view on your composite tree. Very usefull for debugging purposes.
+        /// </summary>
+        /// <param name="composite">Root Composite</param>
+        /// <param name="depth"></param>
+        /// <returns>Vizualized tree in a string format</returns>
         public static string VizualizeTree(this ICompositeParent composite, int depth = 0)
         {
             var result = new StringBuilder();
@@ -152,6 +158,12 @@ namespace Exercise.Composite
             return result.ToString();
         }
 
+        /// <summary>
+        /// Creates simple view on your composite tree. Very usefull for debugging purposes.
+        /// </summary>
+        /// <param name="composite">Root Composite</param>
+        /// <param name="depth"></param>
+        /// <returns>Vizualized tree in a string format</returns>
         public static string VizualizeTree<T>(this ICompositeParent<T> composite, int depth = 0)
         {
             var result = new StringBuilder();
