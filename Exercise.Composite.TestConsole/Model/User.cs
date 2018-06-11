@@ -15,5 +15,8 @@ namespace Exercise.Composite.TestConsole.Model
         public bool StopBubble() => false;
 
         void ICompositeChild.BubbleDown() => Console.WriteLine($"Bubble down -> {nameof(User)} : {Name}");
+
+        public override string ToString() => $"User: {Name}";
+
     }
 }

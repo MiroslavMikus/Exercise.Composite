@@ -14,5 +14,7 @@ namespace Exercise.Composite.TestConsole.Model
         }
 
         public bool StopBubble() => false;
+
+        public override string ToString() => $"Car: {Color}";
     }
 }

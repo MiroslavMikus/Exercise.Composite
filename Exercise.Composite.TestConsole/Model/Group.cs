@@ -18,5 +18,8 @@ namespace Exercise.Composite.TestConsole.Model
         {
             Console.WriteLine($"Bubble up -> {nameof(Group)} : {Name}");
         }
+
+        public override string ToString() => $"Group: {Name}";
+
     }
 }
