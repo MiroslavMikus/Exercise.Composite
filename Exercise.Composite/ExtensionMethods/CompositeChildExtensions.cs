@@ -141,5 +141,37 @@ namespace Exercise.Composite
         {
             return composite.Parent.Childs.Where(filter ?? (a => true)).Where(a => a != composite);
         }
+
+        public static Stack<ICompositeChild<T>> BuildStackToRoot<T>(this ICompositeChild<T> composite, Stack<ICompositeChild<T>> currentStack = null)
+        {
+            var stack = currentStack ?? new Stack<ICompositeChild<T>>();
+
+            stack.Push(composite);
+
+            if (composite.Parent is ICompositeChild<T> child) 
+            {
+                return BuildStackToRoot(child, stack);
+            }
+            else
+            {
+                return stack;
+            }
+        }
+
+        public static Stack<ICompositeChild> BuildStackToRoot(this ICompositeChild composite, Stack<ICompositeChild> currentStack = null)
+        {
+            var stack = currentStack ?? new Stack<ICompositeChild>();
+
+            stack.Push(composite);
+
+            if (composite.Parent is ICompositeChild child)
+            {
+                return BuildStackToRoot(child, stack);
+            }
+            else
+            {
+                return stack;
+            }
+        }
     }
 }
