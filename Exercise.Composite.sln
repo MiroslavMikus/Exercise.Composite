@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.Composite", "Exercise.Composite\Exercise.Composite.csproj", "{A695E0A0-1E2D-4855-BD0A-65FBA0F15DE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.Composite.TestConsole", "Exercise.Composite.TestConsole\Exercise.Composite.TestConsole.csproj", "{5E5B1E92-204E-441E-87CB-61EE0DB904A5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.Composite.Test", "Exercise.Composite.Test\Exercise.Composite.Test.csproj", "{577463A5-8834-4C8D-8812-5B41B7174109}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{A695E0A0-1E2D-4855-BD0A-65FBA0F15DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A695E0A0-1E2D-4855-BD0A-65FBA0F15DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A695E0A0-1E2D-4855-BD0A-65FBA0F15DE6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{577463A5-8834-4C8D-8812-5B41B7174109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{577463A5-8834-4C8D-8812-5B41B7174109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{577463A5-8834-4C8D-8812-5B41B7174109}.Release|Any CPU.ActiveCfg = Release|Any CPU
