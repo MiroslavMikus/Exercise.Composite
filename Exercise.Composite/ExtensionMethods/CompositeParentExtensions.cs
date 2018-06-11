@@ -106,6 +106,24 @@ namespace Exercise.Composite
             return input;
         }
 
+        public static T InvokeBubbleDownNonCummulative<T>(this ICompositeParent<T> composite, T input)
+        {
+            // Invoke all childs
+            foreach (var child in composite.Childs)
+            {
+                if (composite.StopBubble()) return input;
+
+                var result = child.BubbleDown(input);
+
+                // if the child is a parent -> start recrusion here
+                if (child is ICompositeParent<T> myChildIsParent)
+                {
+                    myChildIsParent.InvokeBubbleDown(result);
+                }
+            }
+            return input;
+        }
+
         /// <summary>
         /// Allows composite parent use multiple child collections.
         /// Example View model has list of users and groups.
