@@ -10,8 +10,6 @@ namespace Exercise.Composite.TestConsole
     {
         static void Main(string[] args)
         {
-            var group = FakeStorage.GetSimpleGroup();
-
             group.InitChildsRecrusive();
 
 

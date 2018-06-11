@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.Composite", "Exerc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.Composite.TestConsole", "Exercise.Composite.TestConsole\Exercise.Composite.TestConsole.csproj", "{5E5B1E92-204E-441E-87CB-61EE0DB904A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.Composite.Test", "Exercise.Composite.Test\Exercise.Composite.Test.csproj", "{577463A5-8834-4C8D-8812-5B41B7174109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E5B1E92-204E-441E-87CB-61EE0DB904A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577463A5-8834-4C8D-8812-5B41B7174109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577463A5-8834-4C8D-8812-5B41B7174109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577463A5-8834-4C8D-8812-5B41B7174109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577463A5-8834-4C8D-8812-5B41B7174109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

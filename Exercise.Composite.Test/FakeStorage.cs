@@ -1,11 +1,11 @@
-﻿using Exercise.Composite.TestConsole.Model;
+﻿using Exercise.Composite.Test.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise.Composite.TestConsole
+namespace Exercise.Composite.Test
 {
     public static class FakeStorage
     {
