@@ -106,10 +106,19 @@ namespace Exercise.Composite
             return input;
         }
 
+        /// <summary>
+        /// Execues bubble down on all child components. Execution will run from up to bottom where every last-child component gets its own execution path.
+        /// This method doesnt respect StopExecution!
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="composite">Current composite parent.</param>
+        /// <param name="input">Init value</param>
+        /// <returns>IEnumerable of results. Since this method uses yield return the executin will be 'lazy' -> execution will run when you ask for result.</returns>
         public static IEnumerable<T> InvokeBubbleDownNonCummulative<T>(this ICompositeParent<T> composite, T input)
         {
             List<ICompositeChild<T>> bottomChildren = new List<ICompositeChild<T>>();
 
+            // recrusive search for bottom composites -> child composites which are not a parent at the same time
             composite.ExecuteOnChildRecrusive((parent, child) =>
             {
                 if (!(child is ICompositeParent<T>))
