@@ -142,6 +142,13 @@ namespace Exercise.Composite
             return composite.Parent.Childs.Where(filter ?? (a => true)).Where(a => a != composite);
         }
 
+        /// <summary>
+        /// Iterates from the current child composite to the root child composite and collect all references.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="composite">The current composite child.</param>
+        /// <param name="currentStack"></param>
+        /// <returns>Stack where the first element is the current child and last is the composite root.</returns>
         public static Stack<ICompositeChild<T>> BuildStackToRoot<T>(this ICompositeChild<T> composite, Stack<ICompositeChild<T>> currentStack = null)
         {
             var stack = currentStack ?? new Stack<ICompositeChild<T>>();
@@ -158,6 +165,13 @@ namespace Exercise.Composite
             }
         }
 
+        /// <summary>
+        /// Iterates from the current child composite to the root child composite and collect all references.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="composite">The current composite child.</param>
+        /// <param name="currentStack"></param>
+        /// <returns>Stack where the first element is the current child and last is the composite root.
         public static Stack<ICompositeChild> BuildStackToRoot(this ICompositeChild composite, Stack<ICompositeChild> currentStack = null)
         {
             var stack = currentStack ?? new Stack<ICompositeChild>();
