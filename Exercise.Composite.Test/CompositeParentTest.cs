@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -66,9 +67,14 @@ namespace Exercise.Composite.Test
 
             var actual = group.InvokeBubbleDownNonCummulative(group.ToString()).ToList();
 
-            //var expected = ",User: Miro,Car: Red,Car: Blue,User: John,Car: Black";
+            var expected = new List<string>
+            {
+                "Group: Root Group,User: Miro,Car: Red",
+                "Group: Root Group,User: Miro,Car: Blue",
+                "Group: Root Group,User: John,Car: Black"
+            };
 
-            //Assert.AreEqual(expected, actual);
+            CollectionAssert.AreEquivalent(expected, actual);
         }
     }
 }
