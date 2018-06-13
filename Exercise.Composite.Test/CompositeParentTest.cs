@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Exercise.Composite.Test.RecrusiveNodeModel;
+using Exercise.Composite.Test.UserModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Exercise.Composite.Test
@@ -11,7 +13,7 @@ namespace Exercise.Composite.Test
         [TestMethod]
         public void InitRecrusiveChild_Test()
         {
-            var group = FakeStorage.GetSimpleGroup();
+            var group = UserModel.FakeStorage.GetSimpleGroup();
 
             group.InitChildsRecrusive();
 
@@ -27,7 +29,7 @@ namespace Exercise.Composite.Test
         [TestMethod]
         public void VizualizeTree_Test()
         {
-            var group = FakeStorage.GetSimpleGroup();
+            var group = UserModel.FakeStorage.GetSimpleGroup();
 
             group.InitChildsRecrusive();
 
@@ -35,11 +37,11 @@ namespace Exercise.Composite.Test
 
             var expected =
 @"Group: Root Group
- - User: Miro
- -- Car: Red
- -- Car: Blue
- - User: John
- -- Car: Black
+ 01- User: Miro
+ 02-- Car: Red
+ 02-- Car: Blue
+ 01- User: John
+ 02-- Car: Black
 ";
             Assert.AreEqual(expected, actual);
         }
@@ -47,7 +49,7 @@ namespace Exercise.Composite.Test
         [TestMethod]
         public void InvokeBubbleDown_Test()
         {
-            var group = FakeStorage.GetSimpleGroup();
+            var group = UserModel.FakeStorage.GetSimpleGroup();
 
             group.InitChildsRecrusive();
 
@@ -61,7 +63,7 @@ namespace Exercise.Composite.Test
         [TestMethod]
         public void InvokeBubbleDownNonCummulative_Test()
         {
-            var group = FakeStorage.GetSimpleGroup();
+            var group = UserModel.FakeStorage.GetSimpleGroup();
 
             group.InitChildsRecrusive();
 
@@ -75,6 +77,20 @@ namespace Exercise.Composite.Test
             };
 
             CollectionAssert.AreEquivalent(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestFakeModel()
+        {
+            var node = new Node
+            {
+                Name = "SuperRoot",
+                ChildNodes = RecrusiveNodeModel.FakeStorage.ManyNodes().Take(1).ToList()
+            };
+
+            node.InitChildsRecrusive();
+
+           var result = node.VizualizeTree();
         }
     }
 }

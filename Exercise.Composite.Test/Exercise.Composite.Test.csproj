@@ -50,10 +50,11 @@
   <ItemGroup>
     <Compile Include="CompositeChildTest.cs" />
     <Compile Include="CompositeParentTest.cs" />
-    <Compile Include="FakeStorage.cs" />
-    <Compile Include="Model\Car.cs" />
-    <Compile Include="Model\Group.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="UserModel\FakeStorage.cs" />
+    <Compile Include="RecrusiveNodeModel\Letter.cs" />
+    <Compile Include="UserModel\Car.cs" />
+    <Compile Include="UserModel\Group.cs" />
+    <Compile Include="UserModel\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

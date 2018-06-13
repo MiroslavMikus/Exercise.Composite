@@ -173,7 +173,7 @@ namespace Exercise.Composite
 
             foreach (var child in composite.Childs)
             {
-                result.AppendLine($" {new string('-', depth)} {child.ToString()}");
+                result.AppendLine(String.Format(" {0:00}{1} {2}", depth, new string('-', depth), child.ToString()));
 
                 if (child is ICompositeParent parent)
                 {
@@ -202,7 +202,7 @@ namespace Exercise.Composite
 
             foreach (var child in composite.Childs)
             {
-                result.AppendLine($" {new string('-', depth)} {child.ToString()}");
+                result.AppendLine(String.Format(" {0:00}{1} {2}", depth, new string('-', depth), child.ToString()));
 
                 if (child is ICompositeParent<T> parent)
                 {

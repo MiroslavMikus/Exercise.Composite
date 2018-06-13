@@ -10,7 +10,7 @@ namespace Exercise.Composite.Test
         [TestMethod]
         public void BuildStackToRoot_Test()
         {
-            var group = FakeStorage.GetSimpleGroup();
+            var group = UserModel.FakeStorage.GetSimpleGroup();
 
             group.InitChildsRecrusive();
 

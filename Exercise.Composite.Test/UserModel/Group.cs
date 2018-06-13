@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise.Composite.Test.Model
+namespace Exercise.Composite.Test.UserModel
 {
     public class Group : ICompositeParent<string>
     {

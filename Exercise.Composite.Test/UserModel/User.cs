@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Exercise.Composite.Test.Model
+namespace Exercise.Composite.Test.UserModel
 {
     public class User : ICompositeChild<string>, ICompositeParent<string>
     {

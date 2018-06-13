@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Exercise.Composite.Test.Model
+namespace Exercise.Composite.Test.UserModel
 {
     public class Car : ICompositeChild<string>
     {
