@@ -44,6 +44,9 @@
     <Compile Include="CompositeExtensions\CompositeParentExtensions.cs" />
     <Compile Include="CompositeInterfaces\ICompositeChild.cs" />
     <Compile Include="CompositeInterfaces\ICompositeParent.cs" />
+    <Compile Include="MapExtensions\MapChildExtensions.cs" />
+    <Compile Include="MapInterfaces\IMapChild.cs" />
+    <Compile Include="MapInterfaces\IMapParent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
