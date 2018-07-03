@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exercise.Composite.CompositeInterfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Exercise.Composite.Test.UserModel

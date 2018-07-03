@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Exercise.Composite
+namespace Exercise.Composite.CompositeInterfaces
 {
     public interface ICompositeChild
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Exercise.Composite.CompositeExtensions;
 using Exercise.Composite.Test.RecrusiveNodeModel;
 using Exercise.Composite.Test.UserModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

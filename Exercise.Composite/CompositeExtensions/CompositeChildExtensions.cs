@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Exercise.Composite.CompositeInterfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Exercise.Composite
+namespace Exercise.Composite.CompositeExtensions
 {
     public static class CompositeChildExtensions
     {

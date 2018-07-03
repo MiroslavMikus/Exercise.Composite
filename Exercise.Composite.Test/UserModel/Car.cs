@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exercise.Composite.CompositeInterfaces;
+using System;
 
 namespace Exercise.Composite.Test.UserModel
 {

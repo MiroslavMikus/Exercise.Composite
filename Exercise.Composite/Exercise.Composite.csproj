@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods\CompositeChildExtensions.cs" />
-    <Compile Include="ExtensionMethods\CompositeParentExtensions.cs" />
-    <Compile Include="Interfaces\ICompositeChild.cs" />
-    <Compile Include="Interfaces\ICompositeParent.cs" />
+    <Compile Include="CompositeExtensions\CompositeChildExtensions.cs" />
+    <Compile Include="CompositeExtensions\CompositeParentExtensions.cs" />
+    <Compile Include="CompositeInterfaces\ICompositeChild.cs" />
+    <Compile Include="CompositeInterfaces\ICompositeParent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
